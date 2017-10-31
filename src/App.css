@@ -39,3 +39,27 @@
 	margin-bottom: 10px;
 	font-family: 'Montserrat', sans-serif;
 }
+h5{
+	background-color: #02cac8;
+	color:#fff;
+	padding-top:10px;
+	padding-bottom: 10px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	text-align: left;
+	font-weight: bold;
+	padding-left: 10px;
+	font-family: 'Montserrat', sans-serif;
+}
+.container{
+	border:5px solid #02cac8;
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+}
+.btn-Style{
+  margin-right:5px;
+  background-color: #fff;
+  border: #000 1px solid;
+  font-weight: 600;
+  border-radius: 5px;
+}
