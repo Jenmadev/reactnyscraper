@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import API from "../utils/API.js"
 
 class Search extends Component {
     state = {
@@ -19,6 +20,11 @@ class Search extends Component {
     handleFormSubmit = event => {
         event.preventDefault();
         if (this.state.searchTerm) {
+            API.getArticles({
+                searchTerm: this.state.searchTerm,
+                startYear: this.state.startYear,
+                endYear: this.state.endYear
+              })
             console.log(this.state.searchTerm);
         }
     };
