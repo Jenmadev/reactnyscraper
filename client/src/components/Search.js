@@ -1,26 +1,50 @@
-import React from "react";
+import React, { Component } from "react";
 
-const Search = props =>
-    <div class="container" id="box">
-        <form>
-            <h5><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> &nbsp; Search Parameters</h5> 
-            <div class="form-group">
-                <label for="Search Term">Search Term</label> 
-                <input type="text" class="form-control" name ="q" placeholder= "Bruce Lee"/>
-                <label for="page">Number of Records to Retrieve:</label>
-                <select class="form-control" id="page">
-                    <option>1</option>
-                    <option>5</option>
-                    <option>10</option>
-                </select>
-                <label for="Start Year (Optional):">Start Year (Optional):</label>
-                <input type="text" class="form-control" name ="begin_8" placeholder= "2008"/>
-                <label for="End Year (Optional):">End Year (Optional):</label>
-                <input type="text" class="form-control" name ="end_8" placeholder= "1929"/>
-            </div>
-            <button type="search" class="btn btn-default btn-Style">Search</button>
-            <button type="clear" class="btn btn-default btn-Style">Clear Results</button>
-        </form>
-    </div>
+class Search extends Component {
+    state = {
+       articles: [],
+        searchTerm: "",
+        startYear: "",
+        endYear: ""
+      };
+    
+    handleInputChange = event => {
+        const { name, value } = event.target;
+        this.setState({
+            [name]: value
+        });
+        console.log(event.target);
+    };
+
+    handleFormSubmit = event => {
+        event.preventDefault();
+        if (this.state.searchTerm) {
+            console.log(this.state.searchTerm);
+        }
+    };
+
+
+
+
+    render() {
+        return (
+        <div className="container" id="box">
+            <form>
+                <h5><span className="glyphicon glyphicon-calendar" aria-hidden="true"></span> &nbsp; Search Parameters</h5> 
+                <div className="form-group">
+                    <label htmlFor="Search Term">Search Term</label> 
+                    <input value ={this.state.searchTerm} onChange={this.handleInputChange}type="text" className="form-control" name ="searchTerm" placeholder= "Bruce Lee"/>
+                    <label htmlFor="Start Year (Optional):">Start Year (Optional):</label>
+                    <input value ={this.state.startYear} onChange={this.handleInputChange}type="text" className="form-control" name ="startYear" placeholder= "2008"/>
+                    <label htmlFor="End Year (Optional):">End Year (Optional):</label>
+                    <input value ={this.state.endYear} onChange={this.handleInputChange} type="text" className="form-control" name ="endYear" placeholder= "1929"/>
+                </div>
+                <button onClick={this.handleFormSubmit} type="search" className="btn btn-default btn-Style">Search</button>
+                {/* <button type="clear" class="btn btn-default btn-Style">Clear Results</button> */}
+            </form>
+        </div>
+        );
+    } 
+}
    
 export default Search;
